@@ -1,8 +1,15 @@
 package organizations;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,58 +22,64 @@ import org.openqa.selenium.safari.SafariDriver;
 import generic_utility.FileUtility;
 import generic_utility.WebDriverUtility;
 
-public class CreateOrgTest {
+public class CreateOrgWithPhoneTest {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		FileUtility fUtil = new FileUtility();
-		String BROWSER = fUtil.getDataFromProp("bro");
-		String URL = fUtil.getDataFromProp("url");
-		String USERNAME = fUtil.getDataFromProp("un");
-		String PASSWORD = fUtil.getDataFromProp("pwd");
+		FileInputStream fis = new FileInputStream(
+				"C:\\Users\\User\\git\\E2_project\\vtiger_crm_framework\\src\\test\\resources\\commonData.properties");
 
-		String orgName = fUtil.getDataFromExcel("org", 1, 0);
+		Properties pObj = new Properties();
+		pObj.load(fis);
+
+		String URL = pObj.getProperty("url");
+		String USERNAME = pObj.getProperty("un");
+		String PASSWORD = pObj.getProperty("pwd");
+
+//		getting data from excel sheet
+
+		FileInputStream fis2 = new FileInputStream("C:\\Users\\User\\Desktop\\testData.xlsx");
+		Workbook wb = WorkbookFactory.create(fis2);
+		Sheet sh = wb.getSheet("org");
+
+		String orgName = sh.getRow(2).getCell(0).getStringCellValue() + (int) (Math.random() * 1000);
+		String phone = sh.getRow(1).getCell(1).getStringCellValue();
 
 //		Opening browser
-//		WebDriver driver = new ChromeDriver();
-		WebDriver driver;
-		if (BROWSER.equalsIgnoreCase("chrome")) {
-			driver = new ChromeDriver();
-		} else if (BROWSER.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
-		} else if (BROWSER.equalsIgnoreCase("firefox")) {
-			driver = new FirefoxDriver();
-		} else if (BROWSER.equalsIgnoreCase("safari")) {
-			driver = new SafariDriver();
-		} else {
-			driver = new ChromeDriver();
-		}
-
-		WebDriverUtility wdlib = new WebDriverUtility(driver);
-		
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
 		driver.get(URL);
 
 //		Login
 		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
 		driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
-
 		WebElement submitBtn = driver.findElement(By.id("submitButton"));
-//		submitBtn.click();
-		wdlib.clickOnElement(submitBtn);
+		submitBtn.click();
 
 //		Create Organization
 		driver.findElement(By.linkText("Organizations")).click();
 		driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();
 
+//		String orgName = "fb_" + (int) (Math.random() * 1000);
 		driver.findElement(By.name("accountname")).sendKeys(orgName);
+
+//		String phone = "9876543210";
+		driver.findElement(By.id("phone")).sendKeys(phone);
+
+//		save
 		driver.findElement(By.name("button")).click();
 
 //		Verification
 		String actOrgName = driver.findElement(By.className("dvHeaderText")).getText();
 		if (actOrgName.contains(orgName)) {
 			System.out.println("Organization created succesfully !!!");
+		}
+
+		String actPhone = driver.findElement(By.id("dtlview_Phone")).getText();
+		if (actPhone.contains(phone)) {
+			System.out.println("Phone number entered successfully !!!");
 		}
 
 //		Log out
