@@ -1,4 +1,4 @@
-package organizations;
+package extra;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

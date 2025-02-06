@@ -1,4 +1,4 @@
-package organizations;
+package extra;
 
 import java.util.Random;
 

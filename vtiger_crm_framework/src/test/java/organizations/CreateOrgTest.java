@@ -3,6 +3,7 @@ package organizations;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Attribute.Use;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,11 +15,12 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import generic_utility.FileUtility;
 import generic_utility.WebDriverUtility;
+import object_repository.LoginPage;
 
 public class CreateOrgTest {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-
+		
 		FileUtility fUtil = new FileUtility();
 		String BROWSER = fUtil.getDataFromProp("bro");
 		String URL = fUtil.getDataFromProp("url");
@@ -48,14 +50,21 @@ public class CreateOrgTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.get(URL);
 
-//		Login
-		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
-		driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+////		Login
+//		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+//		driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+//
+//		WebElement submitBtn = driver.findElement(By.id("submitButton"));
+////		submitBtn.click();
+//		wdlib.clickOnElement(submitBtn);
+		
+		LoginPage lp = new LoginPage(driver);
+//		lp.login();
 
-		WebElement submitBtn = driver.findElement(By.id("submitButton"));
-//		submitBtn.click();
-		wdlib.clickOnElement(submitBtn);
-
+		lp.getUserEdit().sendKeys(USERNAME);
+		lp.getPassEdit().sendKeys(PASSWORD);
+		lp.getLoginBtn().click();
+		
 //		Create Organization
 		driver.findElement(By.linkText("Organizations")).click();
 		driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();

@@ -10,20 +10,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import generic_utility.FileUtility2;
+import generic_utility.FileUtility;
 
 public class CreateOrgWithIndTest {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		FileUtility2 flib2 = new FileUtility2();
+		FileUtility flib2 = new FileUtility();
 		String URL = flib2.getDataFromProp("url");
 		String USERNAME = flib2.getDataFromProp("un");
 		String PASSWORD = flib2.getDataFromProp("pwd");
 		
 //		getting data from excel sheet
-		String orgName = flib2.getDataFromExcelFile("org", 2, 0);
-		String indus = flib2.getDataFromExcelFile("org", 1, 2);
+		String orgName = flib2.getDataFromExcel("org", 2, 0);
+		String indus = flib2.getDataFromExcel("org", 1, 2);
 		
 //		Opening browser
 		WebDriver driver = new ChromeDriver();
