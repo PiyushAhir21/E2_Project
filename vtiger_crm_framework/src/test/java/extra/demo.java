@@ -17,10 +17,7 @@ public class demo {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-		driver.get("http://localhost:8888/");
-
-		LoginPage lp = new LoginPage(driver);
-		lp.login();
+		driver.get("");
 
 	}
 

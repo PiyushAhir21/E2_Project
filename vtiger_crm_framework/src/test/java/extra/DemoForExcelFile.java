@@ -1,10 +1,12 @@
 package extra;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -22,12 +24,16 @@ public class DemoForExcelFile {
 		
 		Row row = sh.getRow(1);
 		
-		Cell cell = row.getCell(3);
+		Cell cell = row.createCell(1);
 		
-		int value = (int) cell.getNumericCellValue(); // + (int)(Math.random()*1000);
+		cell.setCellType(CellType.STRING);
 		
-		System.out.println(value);
+		cell.setCellValue("Kumar");
 		
+		
+		FileOutputStream fos = new FileOutputStream("C:\\Users\\User\\Desktop\\testScriptData.xlsx");
+		wb.write(fos);
+		wb.close();		
 	}
 
 }
