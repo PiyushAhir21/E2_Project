@@ -12,6 +12,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.Test;
 
 import generic_utility.FileUtility;
 import generic_utility.WebDriverUtility;
@@ -19,15 +20,16 @@ import object_repository.LoginPage;
 
 public class CreateOrgTest {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
-		
+	@Test
+	public void createOrgTest() throws IOException, InterruptedException {
+//	public static void main(String[] args) throws IOException, InterruptedException {
 		FileUtility fUtil = new FileUtility();
 		String BROWSER = fUtil.getDataFromProp("bro");
 		String URL = fUtil.getDataFromProp("url");
 		String USERNAME = fUtil.getDataFromProp("un");
 		String PASSWORD = fUtil.getDataFromProp("pwd");
 
-		String orgName = fUtil.getDataFromExcel("org", 1, 0);
+		String orgName = fUtil.getDataFromExcel("org", 1, 0) + (int) (Math.random() * 1000);
 
 //		Opening browser
 //		WebDriver driver = new ChromeDriver();
@@ -45,7 +47,7 @@ public class CreateOrgTest {
 		}
 
 		WebDriverUtility wdlib = new WebDriverUtility(driver);
-		
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.get(URL);
@@ -57,14 +59,14 @@ public class CreateOrgTest {
 //		WebElement submitBtn = driver.findElement(By.id("submitButton"));
 ////		submitBtn.click();
 //		wdlib.clickOnElement(submitBtn);
-		
+
 		LoginPage lp = new LoginPage(driver);
 //		lp.login();
 
 		lp.getUserEdit().sendKeys(USERNAME);
 		lp.getPassEdit().sendKeys(PASSWORD);
 		lp.getLoginBtn().click();
-		
+
 //		Create Organization
 		driver.findElement(By.linkText("Organizations")).click();
 		driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();
@@ -83,7 +85,8 @@ public class CreateOrgTest {
 		Actions act = new Actions(driver);
 		act.moveToElement(profile).build().perform();
 		Thread.sleep(1000);
-		driver.findElement(By.linkText("Sign Out")).click();
-		driver.close();
+		driver.findElement(By.linkText("Sign Ou")).click();
+		driver.quit();
+
 	}
 }

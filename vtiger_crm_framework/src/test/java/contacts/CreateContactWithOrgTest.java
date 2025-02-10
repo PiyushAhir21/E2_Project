@@ -1,5 +1,6 @@
 package contacts;
 
+import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,14 +9,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
 import generic_utility.FileUtility;
 import generic_utility.WebDriverUtility;
 
-
 public class CreateContactWithOrgTest {
 
-	public static void main(String[] args) throws Throwable {
+	@Test
+	public void createConWithOrgTest() throws IOException {
+//	public static void main(String[] args) throws Throwable {
 		FileUtility flib = new FileUtility();
 
 		// Read common data from property file
@@ -82,7 +85,7 @@ public class CreateContactWithOrgTest {
 //		Click on save and verify
 		driver.findElement(By.xpath("(//input[@title='Save [Alt+S]'])")).click();
 		String verifyLn = driver.findElement(By.id("dtlview_Last Name")).getText();
-		if (verifyLn.equals(LastName)) {
+		if (verifyLn.equals("123")) {
 			System.out.println("Lastname : " + LastName + " given Successfully!!!");
 		}
 

@@ -9,22 +9,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import generic_utility.FileUtility;
 
 public class CreateOrgWithIndTest {
-
-	public static void main(String[] args) throws IOException, InterruptedException {
-
+	@Test
+	public void createOrgWithIndTest() throws IOException, InterruptedException {
+//	public static void main(String[] args) throws IOException, InterruptedException {
 		FileUtility flib2 = new FileUtility();
 		String URL = flib2.getDataFromProp("url");
 		String USERNAME = flib2.getDataFromProp("un");
 		String PASSWORD = flib2.getDataFromProp("pwd");
-		
+
 //		getting data from excel sheet
-		String orgName = flib2.getDataFromExcel("org", 2, 0);
+		String orgName = flib2.getDataFromExcel("org", 2, 0) + (int) (Math.random() * 1000);
 		String indus = flib2.getDataFromExcel("org", 1, 2);
-		
+
 //		Opening browser
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -49,7 +50,7 @@ public class CreateOrgWithIndTest {
 		Select indSel = new Select(industry);
 //		String indus = "Technology";
 		indSel.selectByValue(indus);
-		
+
 //		save
 		driver.findElement(By.name("button")).click();
 
@@ -58,18 +59,19 @@ public class CreateOrgWithIndTest {
 		if (actOrgName.contains(orgName)) {
 			System.out.println("Organization created succesfully !!!");
 		}
-		
+
 		String actIndustry = driver.findElement(By.id("mouseArea_Industry")).getText();
 		if (actIndustry.equals(indus)) {
 			System.out.println("industry dropdown added successfully !!!");
 		}
-		
+
 //		Log out
 		WebElement profile = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
 		Actions act = new Actions(driver);
 		act.moveToElement(profile).build().perform();
 		Thread.sleep(1000);
 		driver.findElement(By.linkText("Sign Out")).click();
-		driver.close();
+		driver.quit();
+
 	}
 }

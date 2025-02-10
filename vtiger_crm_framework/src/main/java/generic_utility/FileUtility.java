@@ -27,7 +27,7 @@ public class FileUtility {
 		Sheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);
 		Cell cell = row.getCell(cellNum);
-		return cell.getStringCellValue() + (int) (Math.random() * 1000);
+		return cell.getStringCellValue();
 	}
 	
 
