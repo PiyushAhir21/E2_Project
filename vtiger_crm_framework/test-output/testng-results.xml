@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Account created Successfully]]>
+    </line>
+    <line>
+      <![CDATA[Account deleted Successfully]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2025-02-10T17:45:13 IST" name="Default suite" finished-at="2025-02-10T17:45:13 IST" duration-ms="45">
+    <groups>
+    </groups>
+    <test started-at="2025-02-10T17:45:13 IST" name="Default test" finished-at="2025-02-10T17:45:13 IST" duration-ms="45">
+      <class name="extra.Demo">
+        <test-method signature="createAccount()[pri:0, instance:extra.Demo@614ca7df]" started-at="2025-02-10T17:45:13 IST" name="createAccount" finished-at="2025-02-10T17:45:13 IST" duration-ms="10" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Account created Successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- createAccount -->
+        <test-method signature="deleteAccount()[pri:0, instance:extra.Demo@614ca7df]" started-at="2025-02-10T17:45:13 IST" name="deleteAccount" finished-at="2025-02-10T17:45:13 IST" depends-on-methods="extra.Demo.createAccount" duration-ms="2" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Account deleted Successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- deleteAccount -->
+      </class> <!-- extra.Demo -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
