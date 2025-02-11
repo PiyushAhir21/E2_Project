@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test(failed)">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="Test1(failed)">
+    <parameter name="BROWSER" value="chrome"/>
     <classes>
-      <class name="organizations.CreateOrgTest">
+      <class name="organizations.CreateOrgWithIndTest">
         <methods>
-          <include name="createOrgTest"/>
+          <include name="createOrgWithIndTest"/>
         </methods>
-      </class> <!-- organizations.CreateOrgTest -->
+      </class> <!-- organizations.CreateOrgWithIndTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

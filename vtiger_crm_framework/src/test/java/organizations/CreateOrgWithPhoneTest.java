@@ -13,7 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class CreateOrgWithPhoneTest {
 
@@ -69,21 +71,37 @@ public class CreateOrgWithPhoneTest {
 
 //			Verification
 		String actOrgName = driver.findElement(By.className("dvHeaderText")).getText();
-		if (actOrgName.contains(orgName)) {
-			System.out.println("Organization created succesfully !!!");
-		}
+//		if (actOrgName.contains(orgName)) {
+//			System.out.println("Organization created succesfully !!!");
+//		}else {
+//			System.out.println("Organization is not creatd !!!");
+//		}
+		Boolean status = actOrgName.contains(orgName + " ");
+		Assert.assertTrue(status);
+		
 
 		String actPhone = driver.findElement(By.id("dtlview_Phone")).getText();
-		if (actPhone.contains(phone)) {
-			System.out.println("Phone number entered successfully !!!");
-		}
+//		if (actPhone.contains(phone)) {
+//			System.out.println("Phone number entered successfully !!!");
+//		}else {
+//			System.out.println("Phone number is not given");
+//		}
+		Boolean status2 = actPhone.equals(phone + " ");
+//		Assert.assertTrue(status2);
 
-//			Log out
+		SoftAssert soft = new SoftAssert();
+		soft.assertTrue(status2);
+
+		
+//		Log out
 		WebElement profile = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
 		Actions act = new Actions(driver);
 		act.moveToElement(profile).build().perform();
 		Thread.sleep(1000);
 		driver.findElement(By.linkText("Sign Out")).click();
 		driver.quit();
+		
+		soft.assertAll();
+
 	}
 }

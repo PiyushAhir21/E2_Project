@@ -9,13 +9,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import generic_utility.FileUtility;
 
 public class CreateOrgWithIndTest {
 	@Test
-	public void createOrgWithIndTest() throws IOException, InterruptedException {
+	public void createOrgWithIndTest(String browser) throws IOException, InterruptedException {
 //	public static void main(String[] args) throws IOException, InterruptedException {
 		FileUtility flib2 = new FileUtility();
 		String URL = flib2.getDataFromProp("url");

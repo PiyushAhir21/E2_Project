@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="organizations.OrgTest">
+      <class name="organizations.CreateOrgWithPhoneTest">
         <methods>
           <include name="createOrgWithPhoneTest"/>
-          <include name="createOrgTest"/>
         </methods>
-      </class> <!-- organizations.OrgTest -->
+      </class> <!-- organizations.CreateOrgWithPhoneTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

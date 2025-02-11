@@ -25,7 +25,7 @@ import object_repository.LoginPage;
 
 public class OrgTest {
 
-	@Test
+	@Test(groups = "SmokeTest")
 	public void createOrgTest() throws IOException, InterruptedException {
 		FileUtility fUtil = new FileUtility();
 		String BROWSER = fUtil.getDataFromProp("bro");
@@ -154,7 +154,7 @@ public class OrgTest {
 
 	}
 
-	@Test
+	@Test(groups = "RegressionTest")
 	public void createOrgWithPhoneTest() throws InterruptedException, IOException {
 		FileInputStream fis = new FileInputStream(
 				"C:\\Users\\User\\git\\E2_project\\vtiger_crm_framework\\src\\test\\resources\\commonData.properties");
