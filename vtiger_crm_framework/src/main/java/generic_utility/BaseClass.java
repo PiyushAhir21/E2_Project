@@ -29,6 +29,7 @@ import object_repository.LoginPage;
 public class BaseClass {
 
 	public WebDriver driver;
+	public static WebDriver sdriver;
 	public FileUtility fUtil = new FileUtility();
 	public WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 	
@@ -42,12 +43,11 @@ public class BaseClass {
 		Reporter.log("Pre condition", true);
 	}
 	
-	@Parameters("BROWSER")
+
 	@BeforeClass
 	public void bclass(String browser) throws IOException {
 		Reporter.log("Opening browser", true);
-//		String BROWSER = fUtil.getDataFromProp("bro");
-		String BROWSER = browser;
+		String BROWSER = fUtil.getDataFromProp("bro");
 		String URL = fUtil.getDataFromProp("url");
 
 		if (BROWSER.equalsIgnoreCase("chrome")) {
@@ -61,6 +61,7 @@ public class BaseClass {
 		} else {
 			driver = new ChromeDriver();
 		}
+		sdriver = driver;
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -82,7 +83,7 @@ public class BaseClass {
 		act.moveToElement(profile).build().perform();
 		Thread.sleep(2000);
 		driver.findElement(By.linkText("Sign Out")).click();
-//		wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Sign Out"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Sign Out"))).click();
 	}
 	
 	@AfterClass

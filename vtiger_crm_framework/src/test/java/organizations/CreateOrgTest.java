@@ -3,12 +3,13 @@ package organizations;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import generic_utility.BaseClass;
 
 public class CreateOrgTest extends BaseClass{
-
 
 	@Test
 	public void createOrgTest() throws IOException, InterruptedException {
@@ -22,8 +23,7 @@ public class CreateOrgTest extends BaseClass{
 		driver.findElement(By.name("button")).click();
 
 		String actOrgName = driver.findElement(By.className("dvHeaderText")).getText();
-		if (actOrgName.contains(orgName)) {
-			System.out.println("Organization created succesfully !!!");
-		}
+		Boolean status = actOrgName.contains(orgName + "123");
+		Assert.assertTrue(status);
 	}
 }

@@ -20,7 +20,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import generic_utility.FileUtility;
-import generic_utility.WebDriverUtility;
 import object_repository.LoginPage;
 
 public class OrgTest {
@@ -49,8 +48,6 @@ public class OrgTest {
 		} else {
 			driver = new ChromeDriver();
 		}
-
-		WebDriverUtility wdlib = new WebDriverUtility(driver);
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));

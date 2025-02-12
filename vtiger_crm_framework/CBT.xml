@@ -2,16 +2,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite parallel="tests" name="Suite">
 	<test thread-count="5" parallel="tests" name="Test1">
-		<classes>
-			<class name="organizations.CreateOrgWithIndTest" />
-		</classes>
-	</test>
-	<test thread-count="5" parallel="tests" name="Test2">
+	
 		<classes>
 			<class name="organizations.CreateOrgTest" />
 		</classes>
 	</test>
 
-	<!-- Test -->
+	<test thread-count="5" parallel="tests" name="Test2">
+		<classes>
+			<class name="organizations.CreateOrgWithIndTest" />
+		</classes>
+	</test> <!--
+	Test -->
 </suite> <!--
 Suite -->
