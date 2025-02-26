@@ -22,7 +22,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import object_repository.LoginPage;
 
@@ -32,20 +35,30 @@ public class BaseClass {
 	public static WebDriver sdriver;
 	public FileUtility fUtil = new FileUtility();
 	public WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-	
+	public ExtentReports reports;
+
 	@BeforeSuite
 	public void bsuite() {
 		Reporter.log("DB connection, Report generation", true);
+		ExtentSparkReporter spark = new ExtentSparkReporter("./Advance_reporting/report.html");
+		spark.config().setDocumentTitle("Document title");
+		spark.config().setReportName("Report Name");
+		spark.config().setTheme(Theme.DARK);
+
+		reports = new ExtentReports();
+		reports.attachReporter(spark);
+		reports.setSystemInfo("O.S.", "Windows 11");
+		reports.setSystemInfo("Browser", "Chrome");
+
 	}
 
 	@BeforeTest
 	public void btest() {
 		Reporter.log("Pre condition", true);
 	}
-	
 
 	@BeforeClass
-	public void bclass(String browser) throws IOException {
+	public void bclass() throws IOException {
 		Reporter.log("Opening browser", true);
 		String BROWSER = fUtil.getDataFromProp("bro");
 		String URL = fUtil.getDataFromProp("url");
@@ -85,13 +98,13 @@ public class BaseClass {
 		driver.findElement(By.linkText("Sign Out")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Sign Out"))).click();
 	}
-	
+
 	@AfterClass
 	public void aclass() {
 		Reporter.log("close browser", true);
 		driver.quit();
 	}
-	
+
 	@AfterTest
 	public void atest() {
 		Reporter.log("Post condition", true);
@@ -100,5 +113,6 @@ public class BaseClass {
 	@AfterSuite
 	public void asuite() {
 		Reporter.log("DB close, Report backup", true);
+		reports.flush();
 	}
 }

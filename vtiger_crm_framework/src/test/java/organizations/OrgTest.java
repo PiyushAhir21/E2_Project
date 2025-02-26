@@ -17,12 +17,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import generic_utility.BaseClass;
 import generic_utility.FileUtility;
 import object_repository.LoginPage;
 
-public class OrgTest {
+public class OrgTest extends BaseClass{
 
 	@Test(groups = "SmokeTest")
 	public void createOrgTest() throws IOException, InterruptedException {
@@ -77,9 +79,8 @@ public class OrgTest {
 
 //		Verification
 		String actOrgName = driver.findElement(By.className("dvHeaderText")).getText();
-		if (actOrgName.contains(orgName)) {
-			System.out.println("Organization created succesfully !!!");
-		}
+		boolean status = actOrgName.contains(orgName);
+		Assert.assertEquals(status, true);
 
 //		Log out
 		WebElement profile = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));

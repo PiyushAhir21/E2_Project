@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="0" failed="1" skipped="1">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[DB connection, Report generation]]>
@@ -8,10 +8,13 @@
       <![CDATA[Pre condition]]>
     </line>
     <line>
-      <![CDATA[Pre condition]]>
+      <![CDATA[Opening browser]]>
     </line>
     <line>
-      <![CDATA[Post condition]]>
+      <![CDATA[Login]]>
+    </line>
+    <line>
+      <![CDATA[Logout]]>
     </line>
     <line>
       <![CDATA[Post condition]]>
@@ -20,79 +23,71 @@
       <![CDATA[DB close, Report backup]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-02-12T17:52:57 IST" name="Suite" finished-at="2025-02-12T17:52:57 IST" duration-ms="55">
+  <suite started-at="2025-02-26T18:30:15 IST" name="Suite" finished-at="2025-02-26T18:30:58 IST" duration-ms="42916">
     <groups>
+      <group name="SmokeTest">
+        <method signature="OrgTest.createOrgTest()[pri:0, instance:organizations.OrgTest@3646a422]" name="createOrgTest" class="organizations.OrgTest"/>
+      </group> <!-- SmokeTest -->
     </groups>
-    <test started-at="2025-02-12T17:52:57 IST" name="Test2" finished-at="2025-02-12T17:52:57 IST" duration-ms="41">
-      <class name="organizations.CreateOrgWithIndTest">
-        <test-method is-config="true" signature="bsuite()[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="bsuite" finished-at="2025-02-12T17:52:57 IST" duration-ms="10" status="PASS">
+    <test started-at="2025-02-26T18:30:15 IST" name="Test" finished-at="2025-02-26T18:30:58 IST" duration-ms="42916">
+      <class name="organizations.OrgTest">
+        <test-method is-config="true" signature="bsuite()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:15 IST" name="bsuite" finished-at="2025-02-26T18:30:15 IST" duration-ms="7" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[DB connection, Report generation]]>
             </line>
           </reporter-output>
         </test-method> <!-- bsuite -->
-        <test-method is-config="true" signature="btest()[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="btest" finished-at="2025-02-12T17:52:57 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="btest()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:15 IST" name="btest" finished-at="2025-02-26T18:30:15 IST" duration-ms="1" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Pre condition]]>
             </line>
           </reporter-output>
         </test-method> <!-- btest -->
-        <test-method is-config="true" signature="bclass(java.lang.String)[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="bclass" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1739362977652" status="FAIL">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Can inject only one of <ITestContext, XmlTest> into a @BeforeClass annotated bclass.
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Can inject only one of <ITestContext, XmlTest> into a @BeforeClass annotated bclass.
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection
-at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:439)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:353)
-at org.testng.internal.Parameters.createParameters(Parameters.java:708)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:168)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:302)
-at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        <test-method is-config="true" signature="bclass()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:15 IST" name="bclass" finished-at="2025-02-26T18:30:18 IST" duration-ms="3381" status="PASS">
           <reporter-output>
+            <line>
+              <![CDATA[Opening browser]]>
+            </line>
           </reporter-output>
         </test-method> <!-- bclass -->
-        <test-method signature="createOrgWithIndTest(java.lang.String)[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="createOrgWithIndTest" finished-at="2025-02-12T17:52:57 IST" duration-ms="0" status="FAIL">
-          <exception class="org.testng.TestNGException">
+        <test-method is-config="true" signature="bmethod()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:19 IST" name="bmethod" finished-at="2025-02-26T18:30:23 IST" duration-ms="4948" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Login]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- bmethod -->
+        <test-method signature="createOrgTest()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:23 IST" name="createOrgTest" finished-at="2025-02-26T18:30:53 IST" duration-ms="29575" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createOrgTest -->
+        <test-method is-config="true" signature="amethod()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:53 IST" name="amethod" finished-at="2025-02-26T18:30:58 IST" duration-ms="4965" status="FAIL">
+          <exception class="java.lang.NullPointerException">
             <message>
-              <![CDATA[
-Cannot inject @Test annotated Method [createOrgWithIndTest] with [class java.lang.String].
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection]]>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Cannot inject @Test annotated Method [createOrgWithIndTest] with [class java.lang.String].
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection
-at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:439)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:353)
-at org.testng.internal.Parameters.createParameters(Parameters.java:708)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:884)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:740)
-at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
-at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:791)
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
+at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:627)
+at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:624)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+at generic_utility.BaseClass.amethod(BaseClass.java:99)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
+at org.testng.internal.TestInvoker.runAfterGroupsConfigurations(TestInvoker.java:676)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:660)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -100,138 +95,46 @@ at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 at org.testng.TestRunner.privateRun(TestRunner.java:794)
 at org.testng.TestRunner.run(TestRunner.java:596)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
+            <line>
+              <![CDATA[Logout]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- createOrgWithIndTest -->
-        <test-method is-config="true" signature="aclass()[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="aclass" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1739362977670" status="SKIP">
+        </test-method> <!-- amethod -->
+        <test-method is-config="true" signature="aclass()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:58 IST" name="aclass" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1740574858511" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aclass -->
-        <test-method is-config="true" signature="atest()[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="atest" finished-at="2025-02-12T17:52:57 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="atest()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:58 IST" name="atest" finished-at="2025-02-26T18:30:58 IST" duration-ms="2" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Post condition]]>
             </line>
           </reporter-output>
         </test-method> <!-- atest -->
-        <test-method is-config="true" signature="asuite()[pri:0, instance:organizations.CreateOrgWithIndTest@7161d8d1]" started-at="2025-02-12T17:52:57 IST" name="asuite" finished-at="2025-02-12T17:52:57 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="asuite()[pri:0, instance:organizations.OrgTest@3646a422]" started-at="2025-02-26T18:30:58 IST" name="asuite" finished-at="2025-02-26T18:30:58 IST" duration-ms="302" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[DB close, Report backup]]>
             </line>
           </reporter-output>
         </test-method> <!-- asuite -->
-      </class> <!-- organizations.CreateOrgWithIndTest -->
-    </test> <!-- Test2 -->
-    <test started-at="2025-02-12T17:52:57 IST" name="Test1" finished-at="2025-02-12T17:52:57 IST" duration-ms="55">
-      <class name="organizations.CreateOrgTest">
-        <test-method is-config="true" signature="btest()[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="btest" finished-at="2025-02-12T17:52:57 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[Pre condition]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- btest -->
-        <test-method is-config="true" signature="bclass(java.lang.String)[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="bclass" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1739362977652" status="FAIL">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Can inject only one of <ITestContext, XmlTest> into a @BeforeClass annotated bclass.
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Can inject only one of <ITestContext, XmlTest> into a @BeforeClass annotated bclass.
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection
-at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:439)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:353)
-at org.testng.internal.Parameters.createParameters(Parameters.java:708)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:168)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:302)
-at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- bclass -->
-        <test-method is-config="true" signature="bmethod()[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="bmethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1739362977679" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- bmethod -->
-        <test-method signature="createOrgTest()[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="createOrgTest" finished-at="2025-02-12T17:52:57 IST" duration-ms="0" status="SKIP">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Can inject only one of <ITestContext, XmlTest> into a @BeforeClass annotated bclass.
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Can inject only one of <ITestContext, XmlTest> into a @BeforeClass annotated bclass.
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection
-at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:439)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:353)
-at org.testng.internal.Parameters.createParameters(Parameters.java:708)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:168)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:302)
-at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createOrgTest -->
-        <test-method is-config="true" signature="amethod()[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="amethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1739362977687" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- amethod -->
-        <test-method is-config="true" signature="aclass()[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="aclass" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1739362977688" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- aclass -->
-        <test-method is-config="true" signature="atest()[pri:0, instance:organizations.CreateOrgTest@71ba6d4e]" started-at="2025-02-12T17:52:57 IST" name="atest" finished-at="2025-02-12T17:52:57 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[Post condition]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- atest -->
-      </class> <!-- organizations.CreateOrgTest -->
-    </test> <!-- Test1 -->
+      </class> <!-- organizations.OrgTest -->
+    </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
