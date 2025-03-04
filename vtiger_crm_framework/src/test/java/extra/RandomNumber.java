@@ -5,6 +5,8 @@ import java.util.Random;
 public class RandomNumber {
 	public static void main(String[] args) {
 		Random ran = new Random();
+	String name="mohan";
+	System.out.println(name);
 		int random = ran.nextInt(100000000);
 		System.out.println(random);
 		
