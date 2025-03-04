@@ -8,6 +8,6 @@ public class RandomNumber {
 		int random = ran.nextInt(100000000);
 		System.out.println(random);
 		
-		System.out.println((int)(Math.random()*100));
+		System.out.println((int)(Math.random()*10));
 	}
 }
