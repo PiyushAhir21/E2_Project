@@ -3,10 +3,15 @@ package extra;
 import java.util.Iterator;
 
 public class array {
+	
 
+	
 	public static void main(String[] args) {
 		Object[] arr = new Object[3];
-
+	
+		//hello Ashutosh 
+		System.out.println("Yadav Ashutosb");
+		
 		arr[0] = "m1";
 		arr[1] = 134;
 		arr[2] = "m3";
@@ -14,8 +19,8 @@ public class array {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-	//hello Ashutosh 	
-		System.out.println("Yadav Ashutosb");
+	
+		
 		Object[][] arr2 = new Object[3][3];
 		arr2[0][0] = "0,0";
 		arr2[0][1] = "0,1";
