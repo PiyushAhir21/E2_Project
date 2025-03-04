@@ -7,6 +7,10 @@ public class RandomNumber {
 		Random ran = new Random();
 		int random = ran.nextInt(100000000);
 		System.out.println(random);
+		System.out.println("all is well and hell");
+		
+
+		
 		
 		System.out.println((int)(Math.random()*1000));
 	}
