@@ -9,5 +9,6 @@ public class RandomNumber {
 		System.out.println(random);
 		
 		System.out.println((int)(Math.random()*1000));
+		System.out.println("Program Ends");
 	}
 }
