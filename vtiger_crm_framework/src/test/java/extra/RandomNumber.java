@@ -8,7 +8,7 @@ public class RandomNumber {
 		int random = ran.nextInt(100000000);
 		System.out.println(random);
 		
-		//print 
 		System.out.println((int)(Math.random()*1000));
+
 	}
 }
